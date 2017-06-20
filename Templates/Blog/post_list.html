@@ -6,16 +6,21 @@
 </head>
 <body>
     <h3>Blog about myself and my mistakes and learnings</h3>
+    {% if posts_author_name%}
+        {{posts_author_name}}
+    {%endif%}
+    {%for post in posts_author_name%}
     <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>More posts about Forts are yet to come stay tunned!!!!!!.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>More posts about trekkers and their experience are yet to come Stay tunned!!!!.</p>
-        </div>
+        <p>
+            Author:{{post.author}}
+        </p>
+        <h1>
+            <a href="">{{post.title}}</a>
+        </h1>
+        <p>
+            {{post.text |linebreaksbr}}
+        </p>
+    </div>
+    {%endfor%}
 </body>
 </html>
