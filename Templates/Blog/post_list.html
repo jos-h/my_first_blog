@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My website</title>
-</head>
-<body>
-    <h3>Blog about myself and my mistakes and learnings</h3>
-    {% if posts_author_name%}
-        {{posts_author_name}}
-    {%endif%}
+{% extends 'Blog/base.html' %}
+{% block content %}
     {%for post in posts_author_name%}
-    <div>
-        <p>
-            Author:{{post.author}}
-        </p>
-        <h1>
-            <a href="">{{post.title}}</a>
-        </h1>
-        <p>
-            {{post.text |linebreaksbr}}
-        </p>
-    </div>
+        <div class="post">
+            <p>
+                Author:{{post.author}}
+            </p>
+            <h1>
+                <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
+            </h1>
+            <p>
+                {{post.text |linebreaksbr}}
+            </p>
+        </div>
     {%endfor%}
-</body>
-</html>
+{% endblock %}
