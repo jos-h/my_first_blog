@@ -17,12 +17,13 @@
 </head>
 <body>
     <div class="page-header">
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+        {% endif %}
         <h3>Blog about myself and my mistakes and learnings</h3>
     </div>
-    <!---->
-    <!--{% if posts_author_name%}-->
-        <!--{{posts_author_name}}-->
-    <!--{%endif%}-->
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
